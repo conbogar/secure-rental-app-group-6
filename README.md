@@ -36,31 +36,30 @@ Each rental record contains:
 
 ## Project Structure
 
-frontend/
-├── public/ Static assets
-├── src/
-│ ├── assets/ Images
-│ ├── components/
-│ │ └── Nav.jsx Top navigation bar
-│ ├── data/
-│ │ ├── mockData.js Sample rental records (temporary)
-│ │ ├── RentalsContext.jsx Shared state provider
-│ │ └── useRentals.js Custom hook for accessing state
-│ ├── pages/
-│ │ ├── Login.jsx
-│ │ ├── Register.jsx
-│ │ ├── Dashboard.jsx
-│ │ ├── RentalList.jsx
-│ │ ├── RentalDetail.jsx
-│ │ └── RentalForm.jsx Used for both Add and Edit
-│ ├── App.jsx Routes and providers
-│ ├── main.jsx Entry point
-│ └── index.css Global styles and Tailwind imports
-├── index.html
-├── package.json
-├── tailwind.config.js
-├── postcss.config.js
-└── vite.config.js
+- **`public/`** — Static assets
+- **`src/`**
+  - **`assets/`** — Images
+  - **`components/`**
+    - `Nav.jsx` — Top navigation bar
+  - **`data/`**
+    - `mockData.js` — Sample rental records
+    - `RentalsContext.jsx` — Shared state provider
+    - `useRentals.js` — Custom hook
+  - **`pages/`**
+    - `Login.jsx`
+    - `Register.jsx`
+    - `Dashboard.jsx`
+    - `RentalList.jsx`
+    - `RentalDetail.jsx`
+    - `RentalForm.jsx`
+  - `App.jsx` — Routes and providers
+  - `main.jsx` — Entry point
+  - `index.css` — Global styles
+- `index.html`
+- `package.json`
+- `tailwind.config.js`
+- `postcss.config.js`
+- `vite.config.js`
 
 ## Running the Frontend
 
