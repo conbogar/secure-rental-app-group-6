@@ -94,11 +94,12 @@ The app runs at http://localhost:5173
 - [x] Add / edit / delete rentals
 - [x] Tailwind styling throughout
 - [x] Data persists across sessions
+- [x] Protected routes (redirect to login when not authenticated)
 
 **Still to come**
 
 - [ ] Replace mock data with live API calls (pending backend)
-- [ ] Register page API integration
+- [ ] Registration and login against the live API (currently mock)
 - [ ] JWT authentication (pending backend)
 - [ ] Comments and code documentation
 - [ ] UI polish and animations
@@ -106,8 +107,8 @@ The app runs at http://localhost:5173
 ## Notes
 
 - The app currently uses mock data stored in localStorage. Once the backend API is live, the RentalsContext will fetch and update rentals from the server instead.
-
 - Authentication is currently mocked for UI development. Real JWT auth will be implemented with the backend.
+- Rentals without a viewing date or deadline are excluded from the Dashboard's upcoming sections; the detail page shows "—" for empty data fields.
 
 ## Project Team 6
 

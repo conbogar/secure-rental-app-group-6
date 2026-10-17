@@ -90,7 +90,7 @@ export const mockRentals = [
   {
     id: 5,
     property: 'Bachelor apartment',
-    address: '654 Spadina Ave,',
+    address: '654 Spadina Ave',
     city: 'Toronto',
     bedrooms: 0,
     rent: 1750,

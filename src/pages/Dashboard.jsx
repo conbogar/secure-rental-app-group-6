@@ -8,13 +8,13 @@ export default function Dashboard() {
   const name = localStorage.getItem('name');
   const email = localStorage.getItem('email');
 
-  const upcomingViewings = rentals
-    .filter((r) => new Date(r.viewingDate) > now)
-    .sort((a, b) => new Date(a.viewingDate) - new Date(b.viewingDate));
+const upcomingViewings = rentals
+  .filter((r) => r.viewingDate && new Date(r.viewingDate) > now)
+  .sort((a, b) => new Date(a.viewingDate) - new Date(b.viewingDate));
 
-  const upcomingDeadlines = rentals
-    .filter((r) => new Date(r.deadline) > now)
-    .sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+const upcomingDeadlines = rentals
+  .filter((r) => r.deadline && new Date(r.deadline) > now)
+  .sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
 
   const recentActivity = [...rentals].sort((a, b) => b.id - a.id).slice(0, 3);
 

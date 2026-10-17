@@ -53,8 +53,8 @@ export default function RentalDetail() {
       <div className="grid grid-cols-2 gap-4 bg-white p-6 rounded-xl shadow-sm">
         <Field label="Monthly Rent" value={`$${rental.rent.toLocaleString()}`} />
         <Field label="Bedrooms" value={rental.bedrooms === 0 ? 'Studio' : rental.bedrooms} />
-        <Field label="Viewing" value={new Date(rental.viewingDate).toLocaleString()} />
-        <Field label="Application Deadline" value={new Date(rental.deadline).toLocaleDateString()} />
+        <Field label="Viewing" value={rental.viewingDate ? new Date(rental.viewingDate).toLocaleString() : '—'}/>
+        <Field label="Application Deadline" value={rental.deadline ? new Date(rental.deadline).toLocaleDateString() : '—'} />
         <Field label="Next Action" value={rental.nextAction} />
       </div>
 
