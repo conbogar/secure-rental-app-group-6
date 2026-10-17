@@ -8,9 +8,14 @@ import RentalForm from './pages/RentalForm';
 import { RentalsProvider } from './data/RentalsContext';
 import Register from './pages/Register';
 
+function ProtectedRoute({ children }) {
+  const token = localStorage.getItem('token');
+  return token ? children : <Navigate to="/login" replace />;
+}
+
 function AppContent() {
   const location = useLocation();
-  const showNav = !['/login', '/register'].includes(location.pathname)
+  const showNav = !['/login', '/register'].includes(location.pathname);
 
   return (
     <>
@@ -18,12 +23,14 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/rentals" element={<RentalList />} />
-        <Route path="/rentals/new" element={<RentalForm />} />
-        <Route path="/rentals/:id" element={<RentalDetail />} />
-        <Route path="/rentals/:id/edit" element={<RentalForm />} />
         <Route path="/register" element={<Register />} />
+
+        {/* Protected routes */}
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/rentals" element={<ProtectedRoute><RentalList /></ProtectedRoute>} />
+        <Route path="/rentals/new" element={<ProtectedRoute><RentalForm /></ProtectedRoute>} />
+        <Route path="/rentals/:id" element={<ProtectedRoute><RentalDetail /></ProtectedRoute>} />
+        <Route path="/rentals/:id/edit" element={<ProtectedRoute><RentalForm /></ProtectedRoute>} />
       </Routes>
     </>
   );
