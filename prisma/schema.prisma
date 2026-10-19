@@ -7,13 +7,36 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
 model Rental {
+  id                Int      @id @default(autoincrement())
+  propertyName      String
+  address           String
+  city              String
+  monthlyRent       Float
+  status            String   @default("Interested")
+  listingUrl        String?
+  contactName       String?
+  contactEmail      String?
+  contactPhone      String?
+  viewingDate       DateTime?
+  applicationDeadline DateTime?
+  submittedAt       DateTime?
+  documentNotes     String?
+  notes             String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
+}
+
+model User {
   id           Int      @id @default(autoincrement())
-  propertyName String
-  address      String
-  city         String
-  monthlyRent  Float
-  status       String   @default("Interested")
+  name         String
+  email        String   @unique
+  passwordHash String
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
+  rentals Rental[]
 }
+

@@ -1,16 +1,19 @@
 const express = require('express');
+const router = express.Router();
 const { PrismaClient } = require('@prisma/client');
 
-const router = express.Router();
 const prisma = new PrismaClient();
+
+const authenticateToken = require('../authMiddleware');
 
 // GET /api/rentals
 // Return all rental records stored in PostgreSQL.
-router.get('/', async (req, res) => {
+router.get('/', authenticateToken, async (req, res) => {
   try {
     const rentals = await prisma.rental.findMany({
+      where: { userId: req.userId },
       orderBy: { id: 'asc' },
-    });
+});
 
     res.json(rentals);
   } catch (error) {
@@ -21,7 +24,7 @@ router.get('/', async (req, res) => {
 
 // GET /api/rentals/:id
 // Return one rental record by its ID.
-router.get('/:id', async (req, res) => {
+router.get('/:id', authenticateToken,async (req, res) => {
   const id = Number(req.params.id);
 
   if (!Number.isInteger(id) || id < 1) {
@@ -30,7 +33,7 @@ router.get('/:id', async (req, res) => {
 
   try {
     const rental = await prisma.rental.findUnique({
-      where: { id },
+      where: { id, userId: req.userId },
     });
 
     if (!rental) {
@@ -46,7 +49,7 @@ router.get('/:id', async (req, res) => {
 
 // POST /api/rentals
 // Validate and save a new rental record.
-router.post('/', async (req, res) => {
+router.post('/', authenticateToken,async (req, res) => {
   const { propertyName, address, city, monthlyRent } = req.body;
 
   if (
@@ -72,14 +75,15 @@ router.post('/', async (req, res) => {
 
   try {
     const rental = await prisma.rental.create({
-      data: {
-        propertyName: propertyName.trim(),
-        address: address.trim(),
-        city: city.trim(),
-        monthlyRent: rent,
-        status: 'Interested',
-      },
-    });
+  data: {
+    propertyName: propertyName.trim(),
+    address: address.trim(),
+    city: city.trim(),
+    monthlyRent: rent,
+    status: 'Interested',
+    userId: req.userId,
+  },
+});
 
     res.status(201).json(rental);
   } catch (error) {
@@ -90,7 +94,7 @@ router.post('/', async (req, res) => {
 
 // PUT /api/rentals/:id
 // Validate and update an existing rental record.
-router.put('/:id', async (req, res) => {
+router.put('/:id', authenticateToken,async (req, res) => {
   const id = Number(req.params.id);
 
   if (!Number.isInteger(id) || id < 1) {
@@ -151,18 +155,24 @@ router.put('/:id', async (req, res) => {
   }
 
   try {
-    const existingRental = await prisma.rental.findUnique({
-      where: { id },
-    });
+    const existingRental = await prisma.rental.findFirst({
+    where: {
+    id,
+    userId: req.userId,
+  },
+});
 
     if (!existingRental) {
       return res.status(404).json({ error: 'Rental not found.' });
     }
 
     const updatedRental = await prisma.rental.update({
-      where: { id },
-      data,
-    });
+    where: {
+    id,
+    userId: req.userId,
+  },
+  data,
+});
 
     res.json(updatedRental);
   } catch (error) {
@@ -173,7 +183,7 @@ router.put('/:id', async (req, res) => {
 
 // DELETE /api/rentals/:id
 // Delete an existing rental record.
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authenticateToken,async (req, res) => {
   const id = Number(req.params.id);
 
   if (!Number.isInteger(id) || id < 1) {
@@ -181,17 +191,20 @@ router.delete('/:id', async (req, res) => {
   }
 
   try {
-    const existingRental = await prisma.rental.findUnique({
-      where: { id },
-    });
+    const existingRental = await prisma.rental.findFirst({
+    where: {
+    id: id,
+    userId: req.userId,
+  },
+});
 
     if (!existingRental) {
       return res.status(404).json({ error: 'Rental not found.' });
     }
 
     const deletedRental = await prisma.rental.delete({
-      where: { id },
-    });
+  where: { id },
+});
 
     res.json({
       message: 'Rental deleted successfully.',
