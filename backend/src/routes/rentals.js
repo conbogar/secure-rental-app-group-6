@@ -202,14 +202,22 @@ router.delete('/:id', authenticateToken,async (req, res) => {
       return res.status(404).json({ error: 'Rental not found.' });
     }
 
-    const deletedRental = await prisma.rental.delete({
-  where: { id },
+   const deletedRental = await prisma.rental.deleteMany({
+    where: {
+        id: id,
+        userId: req.userId,
+    },
 });
 
-    res.json({
-      message: 'Rental deleted successfully.',
-      rental: deletedRental,
+if (deletedRental.count === 0) {
+    return res.status(404).json({
+        error: 'Rental not found.',
     });
+}
+
+    res.json({
+    message: 'Rental deleted successfully.',
+});
   } catch (error) {
     console.error('Error deleting rental:', error);
     res.status(500).json({ error: 'Failed to delete rental.' });
