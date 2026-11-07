@@ -24,7 +24,7 @@ const upcomingDeadlines = rentals
         <h1 className="text-3xl font-bold text-gray-900">
             Welcome{name ? `, ${name}` : email ? `, ${email.split('@')[0]}` : ''}
         </h1>
-        <p className="text-gray-500 mt-1">Your rental search at a glance</p>
+        <p className="text-gray-600 mt-1">Your rental search at a glance</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -54,13 +54,13 @@ const upcomingDeadlines = rentals
           >
             <div>
               <p className="font-semibold text-gray-900">{r.property}</p>
-              <p className="text-sm text-gray-500">{r.address}, {r.city}</p>
+              <p className="text-sm text-gray-600">{r.address}, {r.city}</p>
             </div>
             <StatusBadge status={r.status} />
           </div>
         ))}
         {recentActivity.length === 0 && (
-          <p className="text-gray-400 text-sm py-4">No activity yet.</p>
+          <p className="text-gray-600 text-sm py-4">No activity yet.</p>
         )}
       </div>
     </div>
@@ -72,7 +72,7 @@ function Section({ title, items, dateField, label, onItemClick }) {
     <div className="bg-white p-6 rounded-xl shadow-sm">
       <h2 className="text-lg font-semibold text-gray-900 mb-4">{title}</h2>
       {items.length === 0 ? (
-        <p className="text-gray-400 text-sm">Nothing upcoming.</p>
+        <p className="text-gray-600 text-sm">Nothing upcoming.</p>
       ) : (
         items.map((r) => (
           <div
@@ -82,7 +82,7 @@ function Section({ title, items, dateField, label, onItemClick }) {
           >
             <div>
               <p className="font-semibold text-gray-900">{r.property}</p>
-              <p className="text-sm text-gray-500">{r.nextAction}</p>
+              <p className="text-sm text-gray-600">{r.nextAction}</p>
             </div>
             <div className="text-sm text-blue-600 font-semibold whitespace-nowrap ml-4">
               {label}: {new Date(r[dateField]).toLocaleDateString()}

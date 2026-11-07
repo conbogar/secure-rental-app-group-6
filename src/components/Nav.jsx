@@ -31,7 +31,7 @@ export default function Nav() {
           Rentals
         </Link>
         {(name || email) && (
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-gray-600">
             Welcome, <strong className="text-gray-700">{name || email.split('@')[0]}</strong>
           </span>
         )}

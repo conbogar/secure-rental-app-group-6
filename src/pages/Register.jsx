@@ -30,7 +30,7 @@ export default function Register() {
     <div className="min-h-screen flex items-center justify-center bg-slate-200 px-4">
       <div className="bg-white p-10 rounded-xl shadow-lg w-full max-w-md">
         <h1 className="text-2xl font-bold mb-1 text-gray-900">Create Account</h1>
-        <p className="text-gray-500 mb-8 text-sm">Start tracking your rental applications</p>
+        <p className="text-gray-600 mb-8 text-sm">Start tracking your rental applications</p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <label className="flex flex-col gap-1.5">
@@ -86,7 +86,7 @@ export default function Register() {
             Create Account
         </button>
         </form>
-        <p className="mt-6 text-center text-sm text-gray-500">
+        <p className="mt-6 text-center text-sm text-gray-600">
           Already have an account?{' '}
           <Link to="/login" className="text-blue-600 font-medium hover:underline">
             Sign in

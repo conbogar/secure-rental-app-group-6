@@ -89,7 +89,7 @@ export default function RentalList() {
             placeholder="Search by property, address, or city..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="flex-1 px-3 py-2.5 border border-gray-300 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+            className="flex-1 px-3 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
           />
           <span className="text-sm font-medium text-gray-700 whitespace-nowrap">Status:</span>
           <select
@@ -114,7 +114,7 @@ export default function RentalList() {
             placeholder="Min"
             value={minRent}
             onChange={(e) => setMinRent(e.target.value)}
-            className="w-28 px-3 py-2.5 border border-gray-300 rounded-lg text-base bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-28 px-3 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 placeholder-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <span className="text-gray-400">–</span>
           <input
@@ -122,7 +122,7 @@ export default function RentalList() {
             placeholder="Max"
             value={maxRent}
             onChange={(e) => setMaxRent(e.target.value)}
-            className="w-28 px-3 py-2.5 border border-gray-300 rounded-lg text-base bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-28 px-3 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 placeholder-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <span className="text-sm font-medium text-gray-700 ml-2">Bedrooms:</span>
           <select
