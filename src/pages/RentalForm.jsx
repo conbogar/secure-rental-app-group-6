@@ -139,7 +139,7 @@ function Field({ label, name, value, onChange, type = 'text', required = false, 
 
   return (
     <label className="flex flex-col gap-1.5 mb-1">
-      <span className="text-xs uppercase tracking-wide font-semibold text-gray-600">
+      <span className="text-xs uppercase tracking-wide font-semibold text-gray-700">
         {label}
       </span>
       {options ? (

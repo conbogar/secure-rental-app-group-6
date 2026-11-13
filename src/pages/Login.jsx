@@ -22,7 +22,7 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-slate-200 px-4">
       <div className="bg-white p-10 rounded-xl shadow-lg w-full max-w-md">
         <h1 className="text-2xl font-bold mb-1 text-gray-900">Secure Rental Tracker</h1>
-        <p className="text-gray-500 mb-8 text-sm">Sign in to your account</p>
+        <p className="text-gray-700 mb-8 text-sm">Sign in to your account</p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           <label className="flex flex-col gap-1.5">

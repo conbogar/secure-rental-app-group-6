@@ -10,14 +10,14 @@ export default function Nav() {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     localStorage.removeItem('name');
-    navigate('/login');
+    navigate('/');
   };
 
   const isActive = (path) => location.pathname === path;
 
   const linkClass = (path) =>
     `text-sm font-medium transition-colors ${
-      isActive(path) ? 'text-blue-600' : 'text-gray-600 hover:text-gray-900'
+      isActive(path) ? 'text-blue-600' : 'text-gray-700 hover:text-gray-900'
     }`;
 
   return (
@@ -31,7 +31,7 @@ export default function Nav() {
           Rentals
         </Link>
         {(name || email) && (
-          <span className="text-sm text-gray-600">
+          <span className="text-sm text-gray-700">
             Welcome, <strong className="text-gray-700">{name || email.split('@')[0]}</strong>
           </span>
         )}

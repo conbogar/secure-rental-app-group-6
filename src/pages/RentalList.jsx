@@ -69,7 +69,7 @@ export default function RentalList() {
       <div className="flex justify-between items-center mb-6">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">My Rentals</h1>
-          <p className="text-gray-600 mt-1">
+          <p className="text-gray-700 mt-1">
             Tracking {filtered.length} of {rentals.length} rentals
           </p>
         </div>
@@ -95,7 +95,7 @@ export default function RentalList() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-3 py-2.5 border border-gray-300 rounded-lg text-base bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[160px]"
+            className="px-3 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[160px]"
           >
             <option>All</option>
             <option>Interested</option>
@@ -128,7 +128,7 @@ export default function RentalList() {
           <select
             value={bedroomsFilter}
             onChange={(e) => setBedroomsFilter(e.target.value)}
-            className="px-3 py-2.5 border border-gray-300 rounded-lg text-base bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[110px]"
+            className="px-3 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[110px]"
           >
             <option>Any</option>
             <option>0</option>
@@ -165,14 +165,14 @@ export default function RentalList() {
             type="date"
             value={deadlineFrom}
             onChange={(e) => setDeadlineFrom(e.target.value)}
-            className="px-3 py-2.5 border border-gray-300 rounded-lg text-base bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-3 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <span className="text-gray-400">–</span>
           <input
             type="date"
             value={deadlineTo}
             onChange={(e) => setDeadlineTo(e.target.value)}
-            className="px-3 py-2.5 border border-gray-300 rounded-lg text-base bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-3 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
             onClick={clearFilters}
@@ -192,7 +192,8 @@ export default function RentalList() {
               <th className="px-2 py-3 text-xs font-semibold uppercase tracking-wide text-gray-700">Beds</th>
               <th className="px-2 py-3 text-xs font-semibold uppercase tracking-wide text-gray-700">Rent</th>
               <th className="px-2 py-3 text-xs font-semibold uppercase tracking-wide text-gray-700">Status</th>
-              <th className="px-2 py-3 text-xs font-semibold uppercase tracking-wide text-gray-700">Next Action</th>
+              <th className="px-2 py-3 text-xs font-semibold uppercase tracking-wide text-gray-700">Next Steps</th>
+              <th className="px-2 py-3 text-xs font-semibold uppercase tracking-wide text-gray-700 text-right">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -202,17 +203,28 @@ export default function RentalList() {
                 onClick={() => navigate(`/rentals/${r.id}`)}
                 className="border-b border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors"
               >
-                <td className="px-2 py-4 text-sm text-gray-900 font-semibold">{r.property}</td>
-                <td className="px-2 py-4 text-sm text-gray-600">{r.city}</td>
-                <td className="px-2 py-4 text-sm text-gray-600">{r.bedrooms === 0 ? 'Studio' : r.bedrooms}</td>
-                <td className="px-2 py-4 text-sm text-gray-600">${r.rent.toLocaleString()}</td>
+                <td className="px-2 py-4 text-base text-blue-600 font-semibold hover:underline">{r.property}</td>
+                <td className="px-2 py-4 text-base text-gray-700">{r.city}</td>
+                <td className="px-2 py-4 text-base text-gray-700">{r.bedrooms === 0 ? 'Studio' : r.bedrooms}</td>
+                <td className="px-2 py-4 text-base text-gray-700">${r.rent.toLocaleString()}</td>
                 <td className="px-2 py-4"><StatusBadge status={r.status} /></td>
-                <td className="px-2 py-4 text-sm text-gray-600">{r.nextAction}</td>
+                <td className="px-2 py-4 text-base text-gray-700">{r.nextAction}</td>
+                <td className="px-2 py-4 text-right">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(`/rentals/${r.id}`);
+                    }}
+                    className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-semibold rounded-md transition-colors"
+                  >
+                    View
+                  </button>
+                </td>
               </tr>
             ))}
             {filtered.length === 0 && (
               <tr>
-                <td colSpan="6" className="py-10 text-center text-gray-400 text-sm">
+                <td colSpan="7" className="py-10 text-center text-gray-600 text-base">
                   No rentals match your filters. Try clearing them.
                 </td>
               </tr>

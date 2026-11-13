@@ -45,7 +45,7 @@ export default function RentalDetail() {
       <div className="flex justify-between items-start mt-6 mb-8">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">{rental.property}</h1>
-          <p className="text-gray-600 mt-1">{rental.address}, {rental.city}</p>
+          <p className="text-gray-700 mt-1">{rental.address}, {rental.city}</p>
         </div>
         <StatusBadge status={rental.status} />
       </div>
@@ -121,7 +121,7 @@ export default function RentalDetail() {
 function Field({ label, value }) {
   return (
     <div className="mb-4">
-      <div className="text-xs uppercase tracking-wide font-semibold text-gray-600 mb-1">{label}</div>
+      <div className="text-xs uppercase tracking-wide font-semibold text-gray-700 mb-1">{label}</div>
       <div className="text-base text-gray-900">{value}</div>
     </div>
   );

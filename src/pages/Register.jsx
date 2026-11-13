@@ -30,11 +30,11 @@ export default function Register() {
     <div className="min-h-screen flex items-center justify-center bg-slate-200 px-4">
       <div className="bg-white p-10 rounded-xl shadow-lg w-full max-w-md">
         <h1 className="text-2xl font-bold mb-1 text-gray-900">Create Account</h1>
-        <p className="text-gray-600 mb-8 text-sm">Start tracking your rental applications</p>
+        <p className="text-gray-700 mb-8 text-sm">Start tracking your rental applications</p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <label className="flex flex-col gap-1.5">
-            <span className="text-xs uppercase tracking-wide font-semibold text-gray-600">Name</span>
+            <span className="text-xs uppercase tracking-wide font-semibold text-gray-700">Name</span>
             <input
             type="text"
             value={name}
@@ -45,7 +45,7 @@ export default function Register() {
         </label>
 
         <label className="flex flex-col gap-1.5">
-            <span className="text-xs uppercase tracking-wide font-semibold text-gray-600">Email</span>
+            <span className="text-xs uppercase tracking-wide font-semibold text-gray-700">Email</span>
             <input
             type="email"
             value={email}
@@ -56,7 +56,7 @@ export default function Register() {
         </label>
 
         <label className="flex flex-col gap-1.5">
-            <span className="text-xs uppercase tracking-wide font-semibold text-gray-600">Password</span>
+            <span className="text-xs uppercase tracking-wide font-semibold text-gray-700">Password</span>
             <input
             type="password"
             value={password}
@@ -67,7 +67,7 @@ export default function Register() {
         </label>
 
         <label className="flex flex-col gap-1.5">
-            <span className="text-xs uppercase tracking-wide font-semibold text-gray-600">Confirm Password</span>
+            <span className="text-xs uppercase tracking-wide font-semibold text-gray-700">Confirm Password</span>
             <input
             type="password"
             value={confirm}
@@ -86,7 +86,7 @@ export default function Register() {
             Create Account
         </button>
         </form>
-        <p className="mt-6 text-center text-sm text-gray-600">
+        <p className="mt-6 text-center text-sm text-gray-700">
           Already have an account?{' '}
           <Link to="/login" className="text-blue-600 font-medium hover:underline">
             Sign in

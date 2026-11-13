@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import Welcome from './pages/Welcome';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import RentalList from './pages/RentalList';
@@ -8,20 +9,21 @@ import RentalForm from './pages/RentalForm';
 import { RentalsProvider } from './data/RentalsContext';
 import Register from './pages/Register';
 
+
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem('token');
-  return token ? children : <Navigate to="/login" replace />;
+  return token ? children : <Navigate to="/" replace />;
 }
 
 function AppContent() {
-  const location = useLocation();
-  const showNav = !['/login', '/register'].includes(location.pathname);
+  const location = useLocation(); 
+  const showNav = !['/', '/login', '/register'].includes(location.pathname);
 
   return (
     <>
       {showNav && <Nav />}
-      <Routes>
-        <Route path="/" element={<Navigate to="/login" replace />} />
+      <Routes>        
+        <Route path="/" element={<Welcome />} />        
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
