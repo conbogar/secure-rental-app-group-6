@@ -5,7 +5,7 @@ A private web application that helps renters organize their housing search. Rent
 This is the **frontend** for the project. The backend is being developed separately and will connect to this frontend via a REST API.
 
 ## What It Does
-
+- **Welcome page** with links to sign in and register
 - **Register and log in** with a private account
 - **Dashboard** showing upcoming viewings, deadlines, and recent activity
 - **My Rentals** — a searchable, filterable list of every rental you're tracking
@@ -46,6 +46,7 @@ Each rental record contains:
     - `RentalsContext.jsx` — Shared state provider
     - `useRentals.js` — Custom hook
   - **`pages/`**
+    - `Welcome.jsx`
     - `Login.jsx`
     - `Register.jsx`
     - `Dashboard.jsx`
@@ -75,6 +76,7 @@ The app runs at http://localhost:5173
 
 | Route | Page |
 |-------|------|
+| `/Welcome` | Welcome page |
 | `/login` | Sign in |
 | `/register` | Create an account |
 | `/dashboard` | Overview of upcoming actions |
