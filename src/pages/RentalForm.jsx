@@ -55,19 +55,23 @@ export default function RentalForm() {
   };
 
   return (
-    <div className="p-8 max-w-3xl mx-auto">
-      <button
-        onClick={() => navigate('/rentals')}
-        className="text-blue-600 font-semibold text-sm hover:underline"
-      >
-        ← Back to Rentals
-      </button>
+    <div className="min-h-screen bg-slate-100 p-8 flex flex-col items-center">
+      
+      {/* Container for the back button and title */}
+      <div className="w-full max-w-2xl mb-6">
+        <button
+          onClick={() => navigate('/rentals')}
+          className="text-indigo-600 font-semibold text-base hover:underline mb-4 inline-block"
+        >
+          ← Back to Rentals
+        </button>
+        <h1 className="text-3xl font-bold text-slate-900">
+          {isEdit ? 'Edit Rental' : 'Add Rental'}
+        </h1>
+      </div>
 
-      <h1 className="text-3xl font-bold text-gray-900 mt-6 mb-6">
-        {isEdit ? 'Edit Rental' : 'Log a Rental'}
-      </h1>
-
-      <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-sm">
+      {/* The White Card Form */}
+      <form onSubmit={handleSubmit} className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-slate-200/60 w-full max-w-2xl">
         <SectionTitle>Property</SectionTitle>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Field label="Property Name" name="property" value={form.property} onChange={handleChange} required />
@@ -108,14 +112,14 @@ export default function RentalForm() {
         <div className="flex gap-3 mt-8">
           <button
             type="submit"
-            className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors"
+            className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all shadow-xl hover:shadow-xl"
           >
             {isEdit ? 'Save Changes' : 'Save Rental'}
           </button>
           <button
             type="button"
             onClick={() => navigate('/rentals')}
-            className="px-5 py-2.5 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold rounded-lg transition-colors"
+            className="px-6 py-3 bg-white border-2 border-slate-200 hover:border-slate-400 hover:bg-slate-50 text-slate-700 font-semibold rounded-xl transition-all"
           >
             Cancel
           </button>
@@ -127,7 +131,7 @@ export default function RentalForm() {
 
 function SectionTitle({ children }) {
   return (
-    <h2 className="text-base font-semibold text-gray-900 mt-6 mb-3 first:mt-0">
+    <h2 className="text-base font-semibold text-slate-900 mt-6 mb-3 first:mt-0">
       {children}
     </h2>
   );
@@ -135,11 +139,11 @@ function SectionTitle({ children }) {
 
 function Field({ label, name, value, onChange, type = 'text', required = false, options, textarea = false }) {
   const inputClass =
-    'px-3 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500';
+    'px-3 py-2.5 border border-slate-400 rounded-xl text-base text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors'
 
   return (
     <label className="flex flex-col gap-1.5 mb-1">
-      <span className="text-xs uppercase tracking-wide font-semibold text-gray-700">
+      <span className="text-base uppercase tracking-wide font-semibold text-slate-700">
         {label}
       </span>
       {options ? (
@@ -166,13 +170,13 @@ function Field({ label, name, value, onChange, type = 'text', required = false, 
 
 function Checkbox({ label, name, checked, onChange }) {
   return (
-    <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-700 select-none">
+    <label className="flex items-center gap-2 cursor-pointer text-base text-slate-700 select-none">
       <input
         type="checkbox"
         name={name}
         checked={checked}
         onChange={(e) => onChange(name, e.target.checked)}
-        className="accent-blue-600 w-4 h-4"
+        className="accent-indigo-600 w-4 h-4"
       />
       {label}
     </label>

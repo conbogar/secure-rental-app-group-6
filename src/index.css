@@ -9,14 +9,11 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
-  background: #f5f5f5;
-  color: #222;
-  min-height: 100vh;
+@apply font-sans text-slate-900 min-h-screen;
 }
 
 a {
-  color: #2563eb;
+  color: #4f46e5;
   text-decoration: none;
 }
 

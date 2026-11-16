@@ -21,10 +21,10 @@ const upcomingDeadlines = rentals
   return (
     <div className="p-8 max-w-6xl mx-auto">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">
+        <h1 className="text-3xl font-bold text-slate-900">
             Welcome{name ? `, ${name}` : email ? `, ${email.split('@')[0]}` : ''}
         </h1>
-        <p className="text-gray-700 mt-1">Your rental search at a glance</p>
+        <p className="text-slate-800 mt-1">Your rental search at a glance</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -44,23 +44,23 @@ const upcomingDeadlines = rentals
         />
       </div>
 
-      <h2 className="mt-10 mb-4 text-xl font-semibold text-gray-900">Recent Activity</h2>
-      <div className="bg-white p-6 rounded-xl shadow-sm">
+      <h2 className="mt-10 mb-4 text-xl font-semibold text-slate-900">Recent Activity</h2>
+      <div className="bg-white p-6 rounded-xl shadow-xl border border-slate-200/60">
         {recentActivity.map((r) => (
           <div
             key={r.id}
             onClick={() => navigate(`/rentals/${r.id}`)}
-            className="flex justify-between items-center py-3 border-b border-gray-100 last:border-b-0 cursor-pointer hover:bg-gray-50 transition-colors -mx-2 px-2 rounded"
+            className="flex justify-between items-center py-3 border-b border-slate-400 last:border-b-0 cursor-pointer hover:bg-slate-200transition-colors -mx-2 px-2 rounded"
           >
             <div>
-              <p className="font-semibold text-gray-900">{r.property}</p>
-              <p className="text-sm text-gray-700">{r.address}, {r.city}</p>
+              <p className="font-semibold text-slate-900">{r.property}</p>
+              <p className="text-base text-slate-800">{r.address}, {r.city}</p>
             </div>
             <StatusBadge status={r.status} />
           </div>
         ))}
         {recentActivity.length === 0 && (
-          <p className="text-gray-700 text-sm py-4">No activity yet.</p>
+          <p className="text-slate-800 text-base py-4">No activity yet.</p>
         )}
       </div>
     </div>
@@ -69,22 +69,22 @@ const upcomingDeadlines = rentals
 
 function Section({ title, items, dateField, label, onItemClick }) {
   return (
-    <div className="bg-white p-6 rounded-xl shadow-sm">
-      <h2 className="text-lg font-semibold text-gray-900 mb-4">{title}</h2>
+    <div className="bg-white p-6 rounded-xl shadow-xl">
+      <h2 className="text-lg font-semibold text-slate-900 mb-4">{title}</h2>
       {items.length === 0 ? (
-        <p className="text-gray-700 text-sm">Nothing upcoming.</p>
+        <p className="text-slate-800 text-base">Nothing upcoming.</p>
       ) : (
         items.map((r) => (
           <div
             key={r.id}
             onClick={() => onItemClick(r.id)}
-            className="flex justify-between items-center py-3 border-b border-gray-100 last:border-b-0 cursor-pointer hover:bg-gray-50 transition-colors -mx-2 px-2 rounded"
+            className="flex justify-between items-center py-3 border-b border-slate-400 last:border-b-0 cursor-pointer hover:bg-slate-200transition-colors -mx-2 px-2 rounded"
           >
             <div>
-              <p className="font-semibold text-gray-900">{r.property}</p>
-              <p className="text-sm text-gray-700">{r.nextAction}</p>
+              <p className="font-semibold text-slate-900">{r.property}</p>
+              <p className="text-base text-slate-800">{r.nextAction}</p>
             </div>
-            <div className="text-sm text-blue-600 font-semibold whitespace-nowrap ml-4">
+            <div className="text-base text-indigo-800 font-semibold whitespace-nowrap ml-4">
               {label}: {new Date(r[dateField]).toLocaleDateString()}
             </div>
           </div>
@@ -104,7 +104,7 @@ function StatusBadge({ status }) {
   };
   const classes = colors[status] || colors.Interested;
   return (
-    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${classes}`}>
+    <span className={`px-3 py-1 rounded-full text-base font-semibold ${classes}`}>
       {status}
     </span>
   );

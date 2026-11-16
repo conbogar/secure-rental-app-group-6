@@ -68,14 +68,14 @@ export default function RentalList() {
     <div className="p-8 max-w-6xl mx-auto">
       <div className="flex justify-between items-center mb-6">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">My Rentals</h1>
-          <p className="text-gray-700 mt-1">
+          <h1 className="text-3xl font-bold text-slate-900">My Rentals</h1>
+          <p className="text-slate-800 mt-1">
             Tracking {filtered.length} of {rentals.length} rentals
           </p>
         </div>
         <Link
           to="/rentals/new"
-          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors"
+          className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-colors"
         >
           + Add Rental
         </Link>
@@ -89,13 +89,13 @@ export default function RentalList() {
             placeholder="Search by property, address, or city..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="flex-1 px-3 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+            className="flex-1 px-3 py-2.5 border border-slate-400 rounded-xl text-base text-slate-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
           />
-          <span className="text-sm font-medium text-gray-700 whitespace-nowrap">Status:</span>
+          <span className="text-base font-medium text-slate-800 whitespace-nowrap">Status:</span>
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-3 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[160px]"
+            className="px-3 py-2.5 border border-slate-400 rounded-xl text-base text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 min-w-[160px]"
           >
             <option>All</option>
             <option>Interested</option>
@@ -108,27 +108,27 @@ export default function RentalList() {
 
         {/* Row 2 — rent + bedrooms */}
         <div className="flex gap-3 items-center flex-wrap">
-          <span className="text-sm font-medium text-gray-700">Rent range:</span>
+          <span className="text-base font-medium text-slate-800">Rent range:</span>
           <input
             type="number"
             placeholder="Min"
             value={minRent}
             onChange={(e) => setMinRent(e.target.value)}
-            className="w-28 px-3 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 placeholder-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-28 px-3 py-2.5 border border-slate-400 rounded-xl text-base text-slate-900 placeholder-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
-          <span className="text-gray-400">–</span>
+          <span className="text-slate-600">–</span>
           <input
             type="number"
             placeholder="Max"
             value={maxRent}
             onChange={(e) => setMaxRent(e.target.value)}
-            className="w-28 px-3 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 placeholder-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-28 px-3 py-2.5 border border-slate-400 rounded-xl text-base text-slate-900 placeholder-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
-          <span className="text-sm font-medium text-gray-700 ml-2">Bedrooms:</span>
+          <span className="text-base font-medium text-slate-800 ml-2">Bedrooms:</span>
           <select
             value={bedroomsFilter}
             onChange={(e) => setBedroomsFilter(e.target.value)}
-            className="px-3 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[110px]"
+            className="px-3 py-2.5 border border-slate-400 rounded-xl text-base text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 min-w-[110px]"
           >
             <option>Any</option>
             <option>0</option>
@@ -140,60 +140,60 @@ export default function RentalList() {
 
         {/* Row 3 — amenities */}
         <div className="flex gap-5 flex-wrap items-center">
-          <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-700 select-none">
-            <input type="checkbox" checked={petsOnly} onChange={(e) => setPetsOnly(e.target.checked)} className="accent-blue-600" />
+          <label className="flex items-center gap-2 cursor-pointer text-base text-slate-800 select-none">
+            <input type="checkbox" checked={petsOnly} onChange={(e) => setPetsOnly(e.target.checked)} className="accent-indigo-600" />
             Pets allowed
           </label>
-          <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-700 select-none">
-            <input type="checkbox" checked={accessibleOnly} onChange={(e) => setAccessibleOnly(e.target.checked)} className="accent-blue-600" />
+          <label className="flex items-center gap-2 cursor-pointer text-base text-slate-800 select-none">
+            <input type="checkbox" checked={accessibleOnly} onChange={(e) => setAccessibleOnly(e.target.checked)} className="accent-indigo-600" />
             Accessible
           </label>
-          <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-700 select-none">
-            <input type="checkbox" checked={furnishedOnly} onChange={(e) => setFurnishedOnly(e.target.checked)} className="accent-blue-600" />
+          <label className="flex items-center gap-2 cursor-pointer text-base text-slate-800 select-none">
+            <input type="checkbox" checked={furnishedOnly} onChange={(e) => setFurnishedOnly(e.target.checked)} className="accent-indigo-600" />
             Furnished
           </label>
-          <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-700 select-none">
-            <input type="checkbox" checked={parkingOnly} onChange={(e) => setParkingOnly(e.target.checked)} className="accent-blue-600" />
+          <label className="flex items-center gap-2 cursor-pointer text-base text-slate-800 select-none">
+            <input type="checkbox" checked={parkingOnly} onChange={(e) => setParkingOnly(e.target.checked)} className="accent-indigo-600" />
             Parking
           </label>
         </div>
 
         {/* Row 4 — deadline range */}
         <div className="flex gap-3 items-center flex-wrap">
-          <span className="text-sm font-medium text-gray-700">Deadline between:</span>
+          <span className="text-base font-medium text-slate-800">Deadline between:</span>
           <input
             type="date"
             value={deadlineFrom}
             onChange={(e) => setDeadlineFrom(e.target.value)}
-            className="px-3 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-3 py-2.5 border border-slate-400 rounded-xl text-base text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
-          <span className="text-gray-400">–</span>
+          <span className="text-slate-600">–</span>
           <input
             type="date"
             value={deadlineTo}
             onChange={(e) => setDeadlineTo(e.target.value)}
-            className="px-3 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-3 py-2.5 border border-slate-400 rounded-xl text-base text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
           <button
             onClick={clearFilters}
-            className="ml-auto text-sm font-semibold text-blue-600 hover:text-blue-700"
+            className="ml-auto text-base font-semibold text-indigo-800 hover:text-blue-700"
           >
             Clear all filters
           </button>
         </div>
       </div>
 
-      <div className="bg-white rounded-xl shadow-sm overflow-x-auto">
+      <div className="bg-white rounded-xl shadow-xl border border-slate-200/60 overflow-x-auto"> 
         <table className="w-full border-collapse">
           <thead>
-            <tr className="text-left border-b-2 border-gray-200">
-              <th className="px-2 py-3 text-xs font-semibold uppercase tracking-wide text-gray-700">Property</th>
-              <th className="px-2 py-3 text-xs font-semibold uppercase tracking-wide text-gray-700">City</th>
-              <th className="px-2 py-3 text-xs font-semibold uppercase tracking-wide text-gray-700">Beds</th>
-              <th className="px-2 py-3 text-xs font-semibold uppercase tracking-wide text-gray-700">Rent</th>
-              <th className="px-2 py-3 text-xs font-semibold uppercase tracking-wide text-gray-700">Status</th>
-              <th className="px-2 py-3 text-xs font-semibold uppercase tracking-wide text-gray-700">Next Steps</th>
-              <th className="px-2 py-3 text-xs font-semibold uppercase tracking-wide text-gray-700 text-right">Actions</th>
+            <tr className="text-left border-b-2 border-slate-400">
+              <th className="px-2 py-3 text-base font-semibold uppercase tracking-wide text-slate-800">Property</th>
+              <th className="px-2 py-3 text-base font-semibold uppercase tracking-wide text-slate-800">City</th>
+              <th className="px-2 py-3 text-base font-semibold uppercase tracking-wide text-slate-800">Beds</th>
+              <th className="px-2 py-3 text-base font-semibold uppercase tracking-wide text-slate-800">Rent</th>
+              <th className="px-2 py-3 text-base font-semibold uppercase tracking-wide text-slate-800">Status</th>
+              <th className="px-2 py-3 text-base font-semibold uppercase tracking-wide text-slate-800">Next Steps</th>
+              <th className="px-2 py-3 text-base font-semibold uppercase tracking-wide text-slate-800 text-right">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -201,21 +201,21 @@ export default function RentalList() {
               <tr
                 key={r.id}
                 onClick={() => navigate(`/rentals/${r.id}`)}
-                className="border-b border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors"
+                className="border-b border-slate-400 cursor-pointer hover:bg-slate-200transition-colors"
               >
-                <td className="px-2 py-4 text-base text-blue-600 font-semibold hover:underline">{r.property}</td>
-                <td className="px-2 py-4 text-base text-gray-700">{r.city}</td>
-                <td className="px-2 py-4 text-base text-gray-700">{r.bedrooms === 0 ? 'Studio' : r.bedrooms}</td>
-                <td className="px-2 py-4 text-base text-gray-700">${r.rent.toLocaleString()}</td>
+                <td className="px-2 py-4 text-base text-indigo-800 font-semibold hover:underline">{r.property}</td>
+                <td className="px-2 py-4 text-base text-slate-800">{r.city}</td>
+                <td className="px-2 py-4 text-base text-slate-800">{r.bedrooms === 0 ? 'Studio' : r.bedrooms}</td>
+                <td className="px-2 py-4 text-base text-slate-800">${r.rent.toLocaleString()}</td>
                 <td className="px-2 py-4"><StatusBadge status={r.status} /></td>
-                <td className="px-2 py-4 text-base text-gray-700">{r.nextAction}</td>
+                <td className="px-2 py-4 text-base text-slate-800">{r.nextAction}</td>
                 <td className="px-2 py-4 text-right">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       navigate(`/rentals/${r.id}`);
                     }}
-                    className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-semibold rounded-md transition-colors"
+                    className="px-3 py-1.5 bg-slate-200hover:bg-gray-200 text-gray-800 text-base font-semibold rounded-md transition-colors"
                   >
                     View
                   </button>
@@ -246,7 +246,7 @@ function StatusBadge({ status }) {
   };
   const classes = colors[status] || colors.Interested;
   return (
-    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${classes}`}>
+    <span className={`px-3 py-1 rounded-full text-base font-semibold ${classes}`}>
       {status}
     </span>
   );
