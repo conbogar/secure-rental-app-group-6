@@ -72,6 +72,10 @@ npm run dev
 
 The app runs at http://localhost:5173
 
+## Live Deployment
+- **Frontend (Vercel):** https://secure-rental-tracker-kelly-fronten.vercel.app/
+- **Backend API (Render):** https://secure-rental-app-group-6.onrender.com
+
 ## Routes
 
 | Route | Page |
