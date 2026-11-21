@@ -115,7 +115,7 @@ The app runs at http://localhost:5173
 ## Project Team 6
 
 - **Frontend:** Kelly Burden, Basit Baddwi
-- **Backend:** Connor Gardiner, Adrian Hidalgo
+- **Backend:** Adrian Hidalgo, Connor Gardiner
 - **QA:** Emily Kotsis-Wilder, Marwa Shahab, Aysha Almoslim
 - **Project Manager:** Arsal Shaheryar
 
