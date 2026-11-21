@@ -1,14 +1,14 @@
 # Secure Rental Application Tracker
 
-A private web application that helps renters organize their housing search. Renters find properties on external sites like Zillow, Kijiji, or liv.rent, then log them here to track applications, viewings, deadlines, contacts, and follow-up tasks — all in one place.
+A private web application that helps renters organize their housing search. Renters find properties on external sites like Zillow, Kijiji, or liv.rent, then log them here to track applications, viewings, deadlines, contacts, and follow-up tasks, all in one place.
 
 This is the **frontend** for the project. The backend is being developed separately and will connect to this frontend via a REST API.
 
 ## What It Does
-- *Welcome page** with links to sign in and register
+- **Welcome page** with links to sign in and register
 - **Register and log in** with a private account
 - **Dashboard** showing upcoming viewings, deadlines, and recent activity
-- **My Rentals** — a searchable, filterable list of every rental you're tracking
+- **My Rentals** provides searchable, filterable list of every rental you're tracking
 - **Add / Edit / Delete rentals** with full property, contact, and application details
 - **Search and filter** by status, rent range, bedrooms, deadline, and amenities (pets, accessibility, furnished, parking)
 
